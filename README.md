@@ -17,7 +17,7 @@ Known Issues: collision is unreliable, jumping into the top corner of a surface 
 Known Issues: killing boss results in "soft lock." program should be exited once this has occurred as no further significant actions will occur  
 --`Deterministic Action`:  
  --Jumps are of fixed height unless obstructed, stationary jumps may not be influenced  
- --Moving jumps may not change except for becoming stationary, attacking or releasing a direction will stop horizontal momentum  
+ --Moving jumps may not change except for becoming stationary, attacking will stop horizontal momentum  
 Known Issues: attacks cooldowns are intentional but attacks, particularly while jumping, will fairly often fail to come out. Attack collision occurs through raytracing so attack sprites visually collide without producing anticipated effect. Stationary(1 key) attack can often be called multiple times without hitting enemy _Semi-intentional,enemy invincibility is intended but not to so great a degree_  
 --`Path Prediction`--_originally intended as additional functionality, not implemented_  
 --`Limited Enemy Action` - Enemy(large red block) sends attack either left, right, or in both directions  
