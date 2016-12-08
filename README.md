@@ -49,6 +49,7 @@ causes target to revert, collecting multiple points causes target to take much l
 * performing an unsuccessful action causes AI to perform action less frequently __This doesn't work. Couldn't tune values of build enough to make this possible, any inclusion of this effectively wiped the AI from how quickly it dropped every action's fitness__
 * performing uniformly successful/unsuccessful actions does not affect the AI(not getting hit should cause the AI to maintain a generally random course of actions) __The ai, because of how it rolls randoms, generally dislikes one of its 3 attacks. While it does result in a skewed distribution of attacks even with no stimulus, this skew should not change significantly unless the player begins taking hits__  
 `Combined interaction`
-* predictions change the metric used by the evaluator for deciding fitness(being attacked in dont die mode affects frequency of successful attack where being hit in point mode makes no difference to AI) __This might not function. when debugging with debug notifications On the expected behavior seems to be reflected in logs, but actual behavior seems to suggest that every target state is treated as dont_die mode and every hit is changing command frequency even when it shouldnt__
-##WriteUp
+* predictions change the metric used by the evaluator for deciding fitness(being attacked in dont die mode affects frequency of successful attack where being hit in point mode makes no difference to AI) __This might not function. when debugging with debug notifications On the expected behavior seems to be reflected in logs, but actual behavior seems to suggest that every target state is treated as dont_die mode and every hit is changing command frequency even when it shouldnt__  
+
+###WriteUp  
 Everything listed as a known issue here, as well as some thing not listed, will be explained in further detail in the final writeup;
