@@ -1,6 +1,8 @@
 ﻿
 /// <summary>
 /// Class for observing player behavior
+/// Intended to observe player and estimate their intention based on their actions
+/// and fluctuations in their status
 /// </summary>
 public class Assessor  {
 
@@ -12,15 +14,15 @@ public class Assessor  {
     {
     }
     /// <summary>
-    /// singleton getter
+    /// Getter method, only proper way to receive an Assessor
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Instance of Assessor</returns>
     public static Assessor getInstance()
     {
         return ths;
     }
     /// <summary>
-    /// UM feed stage data to assessor here
+    /// Receive Data Packets from Unit Manager
     /// </summary>
     /// <param name="notice">UserFeed containing player info</param>
     public void update(UserFeed notice)
@@ -35,18 +37,28 @@ public class Assessor  {
             }
         }
     }
+    /// <summary>
+    /// Method used for Debugging
+    /// Allows modification of assessments
+    /// Would not exist in a fully functional Assessor
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="array"></param>
     public void cheat(int value, int array)
     {
         judge.cheat(value, array);
     }
     /// <summary>
-    /// get the current predicted player goal
+    /// Get Current player goal
     /// </summary>
-    /// <returns></returns>
+    /// <returns>PlayMode for current player goal</returns>
     public PlayerModel.PlayMode target()
     {
         return judge.target();
     }
+    /// <summary>
+    /// Helper for storing values related to assessor
+    /// </summary>
     public class Package
     {
         public int[] data { get; set; }

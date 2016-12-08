@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-
-//create states for player state machine --class to consolidate state creation
+/// <summary>
+/// Builder for Player character
+/// </summary>
 public class PlayerBuilder : Builder{
     public static string[] triggers = {
         "Idle","Moving","Landed","Jump","Falling","Attack0","Attack1"

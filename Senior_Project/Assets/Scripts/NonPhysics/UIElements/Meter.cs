@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-
+/// <summary>
+/// class for UI meters
+/// </summary>
 public class Meter : MonoBehaviour {
 	public void refresh(float value)
     {

@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+/// <summary>
+/// UnitManager for StartStage
+/// </summary>
 public class StartUM : UnitManager
 {
     public override void postwork()

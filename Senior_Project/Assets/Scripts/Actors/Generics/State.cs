@@ -18,12 +18,12 @@ public class State {
     public static State INVALID = new State();//constant for broken path handling
     protected State() { duration = -1; IsValid = false; }
     /// <summary>
-    /// representation of a state. functions must take an InputSet and return a list of strings representing
-    /// triggers. triggers may be used to flag premature termination of 
+    /// Basic Constructor
     /// </summary>
-    /// <param name="Duration"> length of state in frames, must be >=0, value 0 unique for continual looping</param>
+    /// <param name="Duration">length of state in frames, must be >=0, value 0 unique for continual looping</param>
     /// <param name="Scripting">array of functions to be called</param>
-    /// <param name="Manager">StateMachine associated with</param>
+    /// <param name="Manager">StateMachine containing this state</param>
+    /// <param name="redundant">true if first command is repeated for each iteration, else false</param>
     public State(int Duration, System.Func<InputSet,string[]>[] Scripting,StateMachine Manager,bool redundant)
     {
         if (Duration < 0) throw new System.ArgumentOutOfRangeException();
@@ -88,14 +88,14 @@ public class State {
         return nextState;
     }
     /// <summary>
-    /// bind a state that may be transtioned to
+    /// bind a state that may be transtioned to from this
     /// </summary>
     public void link(string trigger, string follow)
     {
         if (!possible.ContainsKey(trigger)) possible.Add(trigger, follow);
     }
     /// <summary>
-    /// 
+    /// bind a state to transition to if no valid triggers are received
     /// </summary>
     public void setDefault(string basecase)
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 /// <summary>
-/// package representing user data to AI
+/// Package used by AI to pass user data
 /// </summary>
 public class UserFeed {
     public Vector2 location { get; set; }

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Class for Scene load triggers
+/// </summary>
 public class SceneTransition : MonoBehaviour
 {
     public string scenePath;

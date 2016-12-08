@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// Builder for Evaluation
+/// </summary>
 public class EvaluationBuilder
 {
     //values in key dont matter, strings are meant as descriptors for int

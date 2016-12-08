@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
-
+/// <summary>
+/// class for Enemy0 actors
+/// </summary>
 public class Enemy0Model : Actor {
     public UnifiedAI over { get; set; }//whatever unit manager is overseeing the enemy
     // remove start from final build, enemies should be loaded from file, not generated programmatically

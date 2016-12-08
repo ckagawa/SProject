@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-//Superclass for Actors: sprites with controlled behavior
-//basic outline for any sprite without purely scripted behavior
+/// <summary>
+/// Class for characters --
+/// character includes player and any game object with AI behavior
+/// </summary>
 public abstract class Actor : MonoBehaviour {
     //basic classifications
     public int id { get; set; }//used for identifying actors, shouldnt be used for programmatic generation
@@ -40,8 +42,7 @@ public abstract class Actor : MonoBehaviour {
         gravity = 0;
     }
     /// <summary>
-    /// checks for hits
-    /// might use for damage balancing if necessary too
+    /// checks hit validity
     /// </summary>
     /// <param name="origin">unit group of hit source</param>
     /// <param name="value">amount of damage</param>
@@ -50,13 +51,18 @@ public abstract class Actor : MonoBehaviour {
     /// <summary>
     /// instantiates attacks
     /// </summary>
-    /// <param name="attackIndex"></param>
+    /// <param name="attackIndex">index of attack</param>
     /// <returns>true if an attack was created, else false</returns>
     public abstract bool launchHit(int attackIndex);
     public abstract bool launchHit(int attackIndex,int command);
+    /// <summary>
+    /// Send attack information to assessor for evaluation
+    /// </summary>
+    /// <param name="index">index of actor</param>
+    /// <param name="value">command code of action</param>
+    /// <param name="cmd">index of associated command</param>
     public static void notify(string index, int value, int cmd)
     {
-        //DH.ping(index + " : " + value);
         Assessor.getInstance().update(new UserFeed { time = -1,
             life = value,score = cmd, msg = index
         });

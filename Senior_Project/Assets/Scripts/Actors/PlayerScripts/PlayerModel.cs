@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
-//player data: facing, max speed, etc.
+/// <summary>
+/// Class for Player-controlled Actor
+/// </summary>
 public class PlayerModel : Actor {
 
     public UnitManager um;//will be null in unity window

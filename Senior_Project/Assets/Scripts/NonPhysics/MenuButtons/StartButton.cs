@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-
+﻿using UnityEngine.SceneManagement;
+/// <summary>
+/// Start screen Button
+/// </summary>
 public class StartButton : UnityEngine.UI.Button {
 
 	// Use this for initialization

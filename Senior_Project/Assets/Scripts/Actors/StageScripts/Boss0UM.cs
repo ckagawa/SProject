@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
-using System;
-
+/// <summary>
+/// UnitManager for stage Boss0
+/// </summary>
 public class Boss0UM : UnitManager
 {
     public override void postwork()

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-//helper to make debugging easier
+/// <summary>
+/// class to help with debugging
+/// </summary>
 public static class DH{
-    private static bool running = true;
+    private static bool running = false;//set true if debugging
 	// Use this for initialization
     public static void ping(object msg)
     {

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-
+/// <summary>
+/// Class representing an Attack in code
+/// </summary>
 public abstract class Attack : MonoBehaviour {
     private int duration = 0;//counter for timeout
     //these need to be set by subclasses

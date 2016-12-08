@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 /// <summary>
-/// Builders will be removed from final builds, anything in a builder should be made such
-/// that it is possible to create a file from what is built.
-/// File will be loaded instead of running builder in final builds
+/// Builders --
+/// builders carry construction information for game elements that in a final build
+/// would be created through file loading
 /// </summary>
 public class Builder{
     //fill with whatever stats

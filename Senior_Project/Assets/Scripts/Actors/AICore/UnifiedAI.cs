@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 /// <summary>
-/// class in charge of figuring out what player is currently trying to do
+/// Manager for Actors' Command Sets
 /// </summary>
 // TODO--change this structure if desired
 // currently loads a single Unified AI on stage load
@@ -15,7 +15,7 @@ public class UnifiedAI{
     private Unit[] units;//array of all actual actors
     public bool awake = true;//true if any unit is active, else false
     /// <summary>
-    /// functionally a replacement for the fixed update function
+    /// Replacement for the FixedUpdate function
     /// </summary>
     public void run()
     {
@@ -27,7 +27,7 @@ public class UnifiedAI{
             }
         }
     }
-    //
+    //order a unit
     private void giveOrders(int index)
     {
         //if cannot act -- used for sending blank commands
@@ -48,6 +48,10 @@ public class UnifiedAI{
         order.actor = units[index].actor;
         units[index].actor.sm.next(order);
     }
+    /// <summary>
+    /// destroy an Actor in the stage
+    /// </summary>
+    /// <param name="ident">index of Actor</param>
     public void killUnit(int ident)
     {
         for(int i = 0; i < units.Length; ++i)
@@ -93,27 +97,25 @@ public class UnifiedAI{
         }
         units = bank;
     }
-    /// <summary>
-    /// imlement later, used to load ai progress
-    /// </summary>
+    //unimplemented file loader
     private void loadFile()
     {
         //for loading, insert code for reading in
     }
-    //implement later, used to load ai progress
+    //unimplemented file writer
     private void saveFile()
     {
 
     }
     /// <summary>
-    /// implement later, used to change Ai sets
-    /// when player objective changes, hash table should as well
-    /// may be difficult with how updates are currently handled
+    /// Unimplemented --
+    /// change command sets to new target PlayMode
     /// </summary>
     public void switchTarget()
     {
         //change between either Unified AIs or command sets here
     }
+    //represents a npc on screen
     private class Unit
     {
         public Actor actor { get; set; }

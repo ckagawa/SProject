@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 /// <summary>
-/// manager for passing data between actors
+/// Manager for Actors --
+/// core of stage functionality
 /// </summary>
 public abstract class UnitManager : MonoBehaviour {
     public GameObject point;
@@ -17,7 +18,7 @@ public abstract class UnitManager : MonoBehaviour {
     public static Assessor watcher = Assessor.getInstance();
     //something here for stage information on where to spawn stuff
 
-    // Use this for initialization
+    // all initialization that must be called regardless of stage
     void Start ()
     {
         if(point!=null)points = point.GetComponentsInChildren<Collectable>();
@@ -37,7 +38,7 @@ public abstract class UnitManager : MonoBehaviour {
         timer = 0;
     }
 	
-	// Update is called once per frame
+	// all updates that occur regardless of stage
 	void FixedUpdate () {
         hud.Health.refresh(Player.life/PlayerModel.maxLife);
         hud.Points.refresh(Player.points);
@@ -59,6 +60,7 @@ public abstract class UnitManager : MonoBehaviour {
         }
         ++timer;
     }
+    // kill any running threads
     void OnApplicationQuit()
     {
         //thread can survive if not killed when game loads
@@ -88,6 +90,11 @@ public abstract class UnitManager : MonoBehaviour {
     /// note- remember to save ai state before progressing
     /// </summary>
     public abstract void progress();
+    /// <summary>
+    /// unimplemented--
+    /// determine what portion of a stage's points have been collected
+    /// </summary>
+    /// <returns>float between 0 and 1 representing percent collected</returns>
     public float pointsLeft()
     {
         if (points == null || points.Length < 1) return 0;

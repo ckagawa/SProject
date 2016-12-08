@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+/// <summary>
+/// UnitManager for stage0
+/// </summary>
 public class Stage0UM : UnitManager
 {
     public override void postwork()

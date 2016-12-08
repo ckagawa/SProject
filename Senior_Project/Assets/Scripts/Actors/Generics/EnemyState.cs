@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿/// <summary>
+/// Finite state machine for enemies
+/// </summary>
 public class EnemyState : StateMachine
 {
     //might think of some use for this eventually

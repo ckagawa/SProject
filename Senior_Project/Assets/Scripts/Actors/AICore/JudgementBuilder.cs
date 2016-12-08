@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
-
+/// <summary>
+/// Builder for Judgment
+/// </summary>
 public class JudgementBuilder
 {
     //values in key dont matter, strings are meant as descriptors for int

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+/// <summary>
+/// Input set for user commands
+/// </summary>
 public class UserIn : InputSet{
     //override flags
     public enum AbsoluteFlag{None,Pause,Kill}

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 /// <summary>
-/// represents user inputs for finite state machine
+/// Classes for representing input packets
 /// </summary>
 public abstract class InputSet {
     public Actor actor;

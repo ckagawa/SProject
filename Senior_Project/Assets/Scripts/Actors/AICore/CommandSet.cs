@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+/// <summary>
+/// Representation of an Artificial Intelligence script
+/// </summary>
 public class CommandSet{
     //shouldn't be here but necessary to avoid all values capping and breaking AI
     //should be fairly low to only permit a few high priority commands, must be 0<x<1
@@ -15,9 +16,10 @@ public class CommandSet{
     short lastValid;
     private static short ADJUSTVALUE = 50;//value used when combining
     /// <summary>
-    /// commands are basic inputs, setSize is max dictionary size
+    /// Basic Constructor
     /// </summary>
-    /// <param name="setSize"> must be greater than commands.length and less than 100 </param>
+    /// <param name="commands">Array of initial commands</param>
+    /// <param name="setSize">Maximum number of Commands</param>
     public CommandSet(AIIn[] commands, short setSize)
     {
         if (setSize < commands.Length||commands == null||setSize>100) throw new System.ArgumentException();
@@ -36,7 +38,10 @@ public class CommandSet{
         }
         lastValid = (short)(baseSize-1);
     }
-    //pick next set of actions
+    /// <summary>
+    /// Gets next Action
+    /// </summary>
+    /// <returns>package containing commands for next action</returns>
 	public Entry next()
     {
         //theres a $12 weighted random number plugin on the asset store, will consider that after project is over
@@ -55,12 +60,23 @@ public class CommandSet{
         }
         return cmds[choice];
     }
-    //methods for managing weights, getter, modifier
+    /// <summary>
+    /// Getter for command fitness ratings
+    /// </summary>
+    /// <param name="index">index of command</param>
+    /// <param name="achieve">true if desire achievement fitness, else support fitness</param>
+    /// <returns></returns>
     public int check(int index, bool achieve)
     {
         if (achieve) return achievement[index];
         else return support[index];
     }
+    /// <summary>
+    /// Alter command fitness rating
+    /// </summary>
+    /// <param name="index">index of command</param>
+    /// <param name="value">amount to change by</param>
+    /// <param name="achieve">true if achievement fitness, else support</param>
     public void weigh(int index,short value,bool achieve)
     {
         int score;
@@ -94,7 +110,15 @@ public class CommandSet{
         }
         DH.ping("Set "+index + " to " + achievement[index]);
     }
-    //create new command
+    /// <summary>
+    /// Used to combine existing commands into new ones
+    /// currently non-functional
+    /// if indices contain more commands than can be made into one sequence
+    /// discard starting from first of first and going towards last of second
+    /// </summary>
+    /// <param name="first">index of commands to be performed first</param>
+    /// <param name="second">index of commands to be perfomed after</param>
+    /// <returns>true if a new command was created</returns>
     public bool combine(short first, short second)
     {/*
         if (lastValid+1>=cmds.Length) return false;
@@ -112,6 +136,7 @@ public class CommandSet{
         }removed because command indexing*/
         return false;
     }
+    //keeps values within expected range
     private void scrub(short[] target)
     {
         int chk = 0;
@@ -129,7 +154,9 @@ public class CommandSet{
             }
         }
     }
-    //classes to contain a command set
+    /// <summary>
+    /// helper classes to hold command entries
+    /// </summary>
     public class Entry
     {
         public int index { get; set; }

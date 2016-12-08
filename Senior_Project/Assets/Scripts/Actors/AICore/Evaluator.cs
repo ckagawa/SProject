@@ -1,11 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Threading;
 /// <summary>
-/// Singleton
-/// class in charge of figuring out how successful AI has been
-/// evaluates fitness
-/// this should really be an abstract class in the future
+/// Class in charge of evaluating fitness
+/// note: In fully functional implementation should be abstract
 /// </summary>
 public class Evaluator{
     //
@@ -26,16 +23,19 @@ public class Evaluator{
         core = new Thread(new ThreadStart(run));
         core.Priority = System.Threading.ThreadPriority.Highest;
     }
-    //foreach loop and switch statement for different types of evaluations
+    /// <summary>
+    /// Singleton getter
+    /// </summary>
+    /// <returns>instance of Evaluator</returns>
     public static Evaluator getInstance()
     {
         //would like to use pointers for this but apparently frowned upon
         return ths;
     }
     /// <summary>
-    /// function for input
-    /// anything that supplies data for fitness judgment should call vote
+    /// Evaluate fitness of data packet
     /// </summary>
+    /// <param name="data">data to be evaluated</param>
     public void vote(Assessor.Package data)
     {
         if (data==null) return;//should be error here
@@ -61,6 +61,7 @@ public class Evaluator{
             DH.ping("Evaluator Cycle");
         }
     }
+    //basic check if there is anything to do
     private void advance()
     {
         Evidence next;
@@ -68,19 +69,20 @@ public class Evaluator{
         if(next!=null)logic.Evaluate(next.type,next.value,next.src);
     }
     /// <summary>
-    /// 
+    /// check if Evaluator can accept more inputs
     /// </summary>
-    /// <returns>true if can't accept new inputs</returns>
+    /// <returns>true if unable to accept new inputs, else false</returns>
     public bool overloaded()
     { return processQueue.Count > LOAD_LIMIT; }
+    //check if is in a runnable state
     private bool working()
     {
         if (checks == null || checks.Length < 1||data==null) return false;
         return true;
     }
     /// <summary>
-    /// used to link ai
-    /// may be called multiple times, ideally no more than once per stage
+    /// used to link a stage's Unified AI
+    /// note: may be called multiple times,but ideally no more than once per stage
     /// </summary>
     /// <param name="ai">Unified AI to be linked</param>
     public void link(UnifiedAI ai)
@@ -88,9 +90,7 @@ public class Evaluator{
         data = ai;
         logic.setAI(ai);
     }
-    /// <summary>
-    /// represents a behavior evaluation
-    /// </summary>
+    //Helper to hold data for fitness evaluation
     private class Evidence
     {
         public PlayerModel.PlayMode type { get; set; }//type of evaluation to be performed

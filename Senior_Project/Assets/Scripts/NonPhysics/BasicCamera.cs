@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-
+/// <summary>
+/// Class for camera which loosely tracks player
+/// </summary>
 public class BasicCamera : MonoBehaviour {
     private PlayerModel target;
     private static float yield = 3f;//tracking deadzone, will only adjust if more than this much off center

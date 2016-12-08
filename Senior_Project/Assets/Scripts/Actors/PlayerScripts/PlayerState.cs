@@ -1,5 +1,6 @@
-﻿
-//player state singleton
+﻿/// <summary>
+/// StateMachine for PlayerModel
+/// </summary>
 public class PlayerState : StateMachine {
     //might think of some use for this eventually
     private static PlayerState ths = PlayerBuilder.Load();

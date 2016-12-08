@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+/// <summary>
+/// Class for detecting ground collision
+/// </summary>
 public class GroundCollider : MonoBehaviour{
 
     ///simple class, if unit is on ground, grounded should be true

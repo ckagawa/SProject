@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+/// <summary>
+/// class for ai manipulator boxes
+/// should not be in functional build
+/// </summary>
 public class TransitionTrigger : MonoBehaviour {
 
     protected Vector2 direction { get { return new Vector2(0, 1); } }//direction of raycast

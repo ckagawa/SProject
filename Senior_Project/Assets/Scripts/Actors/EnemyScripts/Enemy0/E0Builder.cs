@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-
+/// <summary>
+/// Builder for Enemy0
+/// </summary>
 public class E0Builder : Builder{
     public static Actor[] ACTORS()
     {
