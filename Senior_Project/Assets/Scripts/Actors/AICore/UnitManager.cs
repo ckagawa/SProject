@@ -23,6 +23,7 @@ public abstract class UnitManager : MonoBehaviour {
         if(point!=null)points = point.GetComponentsInChildren<Collectable>();
         sys = new UnifiedAI();
         judge.link(sys);
+        if (!judge.core.IsAlive) judge.core.Start();
         watcher.Out=judge;//this should fail fairly often
         judge.target = watcher.target();
         //generate everything in sprite bank here

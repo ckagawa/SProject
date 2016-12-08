@@ -25,7 +25,6 @@ public class Evaluator{
         processQueue = new Queue();
         core = new Thread(new ThreadStart(run));
         core.Priority = System.Threading.ThreadPriority.Highest;
-        core.Start();
     }
     //foreach loop and switch statement for different types of evaluations
     public static Evaluator getInstance()
