@@ -39,7 +39,7 @@ __Things in parentheses generally approximate test cases I checked while working
 * UI(health displays and scales to reflect damage, score increments, debug window updates)
 * collision(typically unable to pass through stage, projectiles reduce player life, enemy dies if hit ~5 times)
 * collection(collectables appear on second stage, touching them destroys them and increments score)
-* debugging(debug window properly displays a current mode and target, first stage triggers change color when touched(at very specific x coordinates))
+* debugging(debug window properly displays a current mode and target, first stage triggers change color when touched)__Very Specific window for first stage triggers__  
 `Prediction`
 * player target prediction changes based on actions(touching stage 1 boxes)__not level of functionality desired but stopgap to prove system functionality, next point more indicative of desired behavior__
 * player target updates as actions change(collecting points changes target to point collection, idling for a sufficient amount of time
